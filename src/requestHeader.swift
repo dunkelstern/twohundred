@@ -45,7 +45,7 @@ public class RequestHeader {
     ///
     /// - parameter index: HTTP header name to query or set or one of `HTTP_METHOD` or `HTTP_VERSION`
     /// - returns: value of corresponding HTTP header, method or version
-    subscript(index: String) -> String? {
+    public subscript(index: String) -> String? {
         get {
             switch index {
             case "HTTP_METHOD":
