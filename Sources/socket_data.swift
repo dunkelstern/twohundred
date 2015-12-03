@@ -6,7 +6,6 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
 
 public enum SocketData: Equatable {
     /// encapsulates a string

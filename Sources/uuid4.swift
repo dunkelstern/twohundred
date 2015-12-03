@@ -6,7 +6,11 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
+#if os(Linux)
+    import Glibc
+#else
+    import Darwin.C
+#endif
 
 /// UUID (Random class)
 public class UUID4: Equatable {

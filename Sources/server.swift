@@ -6,8 +6,6 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
-
 /// HTTP Server baseclass, subclass to get useful behaviour
 public class TwoHundredServer {
     private var requestHeaderData = [UUID4:String]()

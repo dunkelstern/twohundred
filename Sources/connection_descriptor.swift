@@ -6,8 +6,6 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
-
 class ConnectionDescriptor {
     var id: UUID4
     var fd: Int32

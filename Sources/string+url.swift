@@ -6,8 +6,6 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
-
 /// URL encoding and decoding support
 public extension String {
 

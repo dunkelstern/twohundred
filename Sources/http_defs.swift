@@ -6,8 +6,6 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
-
 /// Valid HTTP methods
 public enum HTTPMethod: String {
     case GET = "GET"

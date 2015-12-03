@@ -6,8 +6,6 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
-
 /// HTTP Header
 public struct HTTPHeader {
     /// Name of the header

@@ -113,7 +113,8 @@
 				4229FD541BE5A788009BE9D9 /* response.swift */,
 				4229FD561BE5ABBA009BE9D9 /* server.swift */,
 			);
-			path = src;
+			name = src;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		4229FD381BE5A5A7009BE9D9 /* tests */ = {
@@ -125,7 +126,8 @@
 				428DA3101C053D05001666EF /* server.swift */,
 				428DA3141C07BBDE001666EF /* date.swift */,
 			);
-			path = tests;
+			name = tests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		4229FD4D1BE5A62E009BE9D9 /* support */ = {
@@ -135,7 +137,7 @@
 				4229FD2F1BE5A5A7009BE9D9 /* Info.plist */,
 			);
 			name = support;
-			path = src;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		42705C961BE6B9CA00DC40FD /* common */ = {
@@ -413,7 +415,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "$(SRCROOT)/src/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.dunkelstern.twohundred;
@@ -433,7 +435,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "$(SRCROOT)/src/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.dunkelstern.twohundred;

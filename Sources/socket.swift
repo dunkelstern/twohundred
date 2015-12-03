@@ -9,7 +9,11 @@
 // TODO: Track idle state of sockets
 // TODO: Clean up idle sockets after timeout
 
-import Darwin
+#if os(Linux)
+    import Glibc
+#else
+    import Darwin.C
+#endif
 
 public typealias ReceiveCallback = ((socket: Socket, char: UInt8, connectionID: UUID4, remote: IPAddress?) -> Bool)
 public typealias SendCallback = ((data: SocketData, connectionID: UUID4) -> Void)
