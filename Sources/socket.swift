@@ -11,6 +11,7 @@
 
 #if os(Linux)
     import Glibc
+    import Cdispatch
 #else
     import Darwin.C
 #endif

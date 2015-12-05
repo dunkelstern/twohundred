@@ -6,6 +6,9 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
+#if os(Linux)
+    import Glibc
+#endif
 
 public enum SocketData: Equatable {
     /// encapsulates a string

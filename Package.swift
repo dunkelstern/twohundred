@@ -9,5 +9,8 @@
 import PackageDescription
 
 let package = Package(
+	dependencies: [
+		.Package(url: "Dependencies/dispatch", majorVersion: 1)
+	],
     name: "twohundred"
 )

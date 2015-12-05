@@ -7,7 +7,7 @@
 //
 
 #if os(Linux)
-    import Glibc
+    import SwiftGlibc
 #else
     import Darwin.C
 #endif

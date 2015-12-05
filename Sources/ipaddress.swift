@@ -12,6 +12,8 @@
     import Darwin.C
 #endif
 
+import Foundation
+
 public enum IPAddress {
     case IPv4(_: UInt8, _: UInt8, _: UInt8, _: UInt8)
     case IPv6(_: UInt16, _: UInt16, _: UInt16, _: UInt16, _: UInt16, _: UInt16, _: UInt16, _: UInt16)

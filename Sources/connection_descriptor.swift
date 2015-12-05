@@ -6,6 +6,11 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
+#if os(Linux)
+	import SwiftGlibc
+	import Cdispatch
+#endif
+
 class ConnectionDescriptor {
     var id: UUID4
     var fd: Int32
