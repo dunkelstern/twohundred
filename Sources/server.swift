@@ -59,7 +59,7 @@ public class TwoHundredServer {
                         self.requestHeader[connectionID] = header
                         self.requestHeaderData[connectionID] = ""
                         
-                        if let hdr = self.requestHeader[connectionID]!.headers["Content-Length"] {
+                        if let hdr = self.requestHeader[connectionID]!["Content-Length"] {
                             if let contentLength = Int(hdr) where contentLength == 0 {
                                 self.prepareRequest(connectionID, remote: remote)
                                 return false
@@ -74,7 +74,7 @@ public class TwoHundredServer {
                 }
             } else {
                 // ok body phase, append to body
-                guard let hdr = self.requestHeader[connectionID]!.headers["Content-Length"],
+                guard let hdr = self.requestHeader[connectionID]!["Content-Length"],
                       let contentLength = Int(hdr) else {
                     return false
                 }

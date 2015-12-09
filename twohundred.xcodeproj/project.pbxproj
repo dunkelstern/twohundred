@@ -27,6 +27,8 @@
 		428DA3131C07B7A2001666EF /* date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA3121C07B7A2001666EF /* date.swift */; };
 		428DA3151C07BBDE001666EF /* date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA3141C07BBDE001666EF /* date.swift */; };
 		42AF63AF1C00E3EA00D6F7FD /* socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF63AE1C00E3EA00D6F7FD /* socket.swift */; };
+		42C86B3D1C18D7E100735B38 /* cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B3C1C18D7E100735B38 /* cookie.swift */; };
+		42C86B3F1C18DE7E00735B38 /* string+whitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B3E1C18DE7E00735B38 /* string+whitespace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		428DA3121C07B7A2001666EF /* date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = date.swift; sourceTree = "<group>"; };
 		428DA3141C07BBDE001666EF /* date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = date.swift; sourceTree = "<group>"; };
 		42AF63AE1C00E3EA00D6F7FD /* socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = socket.swift; sourceTree = "<group>"; };
+		42C86B3C1C18D7E100735B38 /* cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cookie.swift; sourceTree = "<group>"; };
+		42C86B3E1C18DE7E00735B38 /* string+whitespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "string+whitespace.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,8 @@
 				428DA30B1C05223F001666EF /* string+url.swift */,
 				428DA30E1C053062001666EF /* http_defs.swift */,
 				428DA3121C07B7A2001666EF /* date.swift */,
+				42C86B3C1C18D7E100735B38 /* cookie.swift */,
+				42C86B3E1C18DE7E00735B38 /* string+whitespace.swift */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -281,12 +287,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4229FD551BE5A788009BE9D9 /* response.swift in Sources */,
+				42C86B3F1C18DE7E00735B38 /* string+whitespace.swift in Sources */,
 				428DA3031C011F83001666EF /* uuid4.swift in Sources */,
 				42705C981BE6B9F800DC40FD /* string_convertible.swift in Sources */,
 				4229FD571BE5ABBA009BE9D9 /* server.swift in Sources */,
 				428DA3081C0269DA001666EF /* socket_data.swift in Sources */,
 				428DA30F1C053062001666EF /* http_defs.swift in Sources */,
 				4229FD591BE5B1D5009BE9D9 /* ipaddress.swift in Sources */,
+				42C86B3D1C18D7E100735B38 /* cookie.swift in Sources */,
 				428DA3131C07B7A2001666EF /* date.swift in Sources */,
 				428DA30A1C026E66001666EF /* adler32.swift in Sources */,
 				428DA3061C0269B0001666EF /* connection_descriptor.swift in Sources */,

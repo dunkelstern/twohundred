@@ -10,7 +10,7 @@
 public class RequestHeader {
     
     /// Defined headers
-    public var headers = [String:String]()
+    public var headers = [(name: String, value:String)]()
     
     /// Request method
     public var method: HTTPMethod = .INVALID
@@ -27,6 +27,9 @@ public class RequestHeader {
     /// Decoded fragment (should probably not be in a request)
     public var fragment: String = ""
     
+    /// Decoded cookies
+    public var cookies = [Cookie]()
+    
     /// Initialize with data
     ///
     /// - parameter data: HTTP request headers as one long string
@@ -34,6 +37,12 @@ public class RequestHeader {
     init?(data: String) {
         if !self.parse(data) {
             return nil
+        }
+        for header in self.headers {
+            if header.name.lowercaseString == "cookie" {
+                let c = Cookie(headerValue: header.value)
+                self.cookies.append(c)
+            }
         }
     }
 
@@ -51,32 +60,44 @@ public class RequestHeader {
             case "HTTP_VERSION":
                 return self.version.rawValue
             default:
-                return self.headers[index]
+                for header in self.headers {
+                    if header.name == index {
+                        return header.value
+                    }
+                }
+                return nil
             }
         }
         
         set(newValue) {
+            guard let newValue = newValue else {
+                return
+            }
             switch index {
             case "HTTP_METHOD":
-                guard let newValue = newValue else {
-                    return
-                }
                 if let method = HTTPMethod(rawValue: newValue) {
                     self.method = method
                 } else {
                     self.method = .INVALID
                 }
             case "HTTP_VERSION":
-                guard let newValue = newValue else {
-                    return
-                }
                 if let version = HTTPVersion(rawValue: newValue) {
                     self.version = version
                 } else {
                     self.version = .Invalid
                 }
             default:
-                self.headers[index] = newValue
+                var found = -1
+                for header in self.headers.enumerate() {
+                    if header.element.name == index {
+                        found = header.index
+                        break
+                    }
+                }
+                if found >= 0 {
+                    self.headers.removeAtIndex(found)
+                }
+                self.headers.append((name: index, value: newValue))
             }
         }
     }
@@ -168,7 +189,7 @@ public class RequestHeader {
                       let name = currentName else {
                     continue
                 }
-                self.headers[name] = value
+                self.headers.append((name: name, value: value))
                 currentName = nil
             case .ErrorState:
                 self.parseErrorState(c)

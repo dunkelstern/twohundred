@@ -37,26 +37,9 @@ public class HTTPResponse {
     
     /// Set a cookie for the response
     ///
-    /// - parameter name: name of the cookie
-    /// - parameter value: value of the cookie
-    /// - parameter domain: cookie domain
-    /// - parameter path: path, defaults to /
-    /// - parameter expires: expiry date or nil for permanent cookies
-    /// - parameter secure: only send cookie over HTTPS, defaults to secure cookies
-    /// - parameter httpOnly: only use cookie for HTTP/S queries, will be unaccessible by javascript when set to true
-    public func setCookie(name: String, value: String, domain: String, path: String = "/", expires: Date? = nil, secure: Bool = true, httpOnly: Bool = true) {
-        var value = "\(name)=\(value); Domain=\(domain); Path=\(path)"
-        if expires != nil {
-            value.appendContentsOf("; Expires=\(expires!.rfc822DateString)")
-        }
-        if secure {
-            value.appendContentsOf("; Secure")
-        }
-        if (httpOnly) {
-            value.appendContentsOf("; HttpOnly")
-        }
-        
-        let header = HTTPHeader("Set-Cookie", value)
+    /// - parameter cookie: a cookie
+    public func setCookie(cookie: Cookie) {
+        let header = HTTPHeader("Set-Cookie", cookie.headerString)
         self.headers.append(header)
     }
     
