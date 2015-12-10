@@ -29,6 +29,7 @@
 		42AF63AF1C00E3EA00D6F7FD /* socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF63AE1C00E3EA00D6F7FD /* socket.swift */; };
 		42C86B3D1C18D7E100735B38 /* cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B3C1C18D7E100735B38 /* cookie.swift */; };
 		42C86B3F1C18DE7E00735B38 /* string+whitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B3E1C18DE7E00735B38 /* string+whitespace.swift */; };
+		42C86B451C1902EA00735B38 /* uuid4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B431C1901CB00735B38 /* uuid4.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		42AF63AE1C00E3EA00D6F7FD /* socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = socket.swift; sourceTree = "<group>"; };
 		42C86B3C1C18D7E100735B38 /* cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cookie.swift; sourceTree = "<group>"; };
 		42C86B3E1C18DE7E00735B38 /* string+whitespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "string+whitespace.swift"; sourceTree = "<group>"; };
+		42C86B431C1901CB00735B38 /* uuid4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uuid4.swift; path = tests/uuid4.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				42AF63AE1C00E3EA00D6F7FD /* socket.swift */,
 				428DA3101C053D05001666EF /* server.swift */,
 				428DA3141C07BBDE001666EF /* date.swift */,
+				42C86B431C1901CB00735B38 /* uuid4.swift */,
 			);
 			name = tests;
 			path = Tests;
@@ -312,6 +315,7 @@
 				42AF63AF1C00E3EA00D6F7FD /* socket.swift in Sources */,
 				4229FD3A1BE5A5A7009BE9D9 /* ipaddress.swift in Sources */,
 				428DA3111C053D05001666EF /* server.swift in Sources */,
+				42C86B451C1902EA00735B38 /* uuid4.swift in Sources */,
 				428DA3151C07BBDE001666EF /* date.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

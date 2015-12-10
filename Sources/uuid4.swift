@@ -38,6 +38,37 @@ public class UUID4: Equatable {
         }
         self.bytes = bytes
     }
+    
+    /// Initialize UUID from string
+    ///
+    /// - parameter string: string in default UUID representation
+    public init?(string: String) {
+        self.bytes = [UInt8](count: 16, repeatedValue: 0)
+        let components = string.componentsSeparatedByString("-")
+        if components.count != 5 {
+            return nil
+        }
+        
+        var byte = 0
+        for comp in components {
+            var characters = comp.characters
+            for _ in 0..<(comp.characters.count / 2) {
+                guard let c1 = characters.popFirst(),
+                      let c2 = characters.popFirst() else {
+                        return nil
+                }
+                
+                let c = UInt8("\(c1)\(c2)", radix: 16)!
+                
+                self.bytes[byte] = c
+                byte++
+            }
+        }
+        
+        if byte != 16 {
+            return nil
+        }
+    }
 }
 
 /// UUIDs are equal when all bytes are equal
