@@ -17,4 +17,14 @@ public struct HTTPRequest {
     
     /// Body data, optional
     public var data:[UInt8]? = nil
+    
+    /// space for custom data from middleware
+    public var middlewareData = [String:Any]()
+    
+    /// default initializer
+    public init(remoteIP: IPAddress?, header: RequestHeader, data: [UInt8]?) {
+        self.remoteIP = remoteIP
+        self.header = header
+        self.data = data
+    }
 }

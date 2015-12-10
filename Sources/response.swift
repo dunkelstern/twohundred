@@ -35,6 +35,9 @@ public class HTTPResponse {
     /// The status code to send
     let statusCode: HTTPStatusCode
     
+    /// space for custom data from middleware
+    public var middlewareData = [String:Any]()
+
     /// Set a cookie for the response
     ///
     /// - parameter cookie: a cookie
