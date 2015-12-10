@@ -31,7 +31,7 @@ public extension String {
             }
         }
         
-        var endIndex = self.endIndex
+        var endIndex = self.endIndex.advancedBy(-1)
         for _ in 0..<self.characters.count {
             if !isWhitespace(self.characters[endIndex]) {
                 break
