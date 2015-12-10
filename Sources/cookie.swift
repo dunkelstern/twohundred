@@ -6,16 +6,14 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Foundation
-
 public struct Cookie {
-    var name: String
-    var value: String
-    var domain: String
-    var path: String
-    var expires: Date?
-    var secure: Bool
-    var httpOnly: Bool
+    public var name: String
+    public var value: String
+    public var domain: String
+    public var path: String
+    public var expires: Date?
+    public var secure: Bool
+    public var httpOnly: Bool
     
     /// Create a Cookie
     ///
