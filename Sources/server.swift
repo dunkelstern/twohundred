@@ -63,6 +63,8 @@ public class TwoHundredServer {
                             if let contentLength = Int(hdr) where contentLength == 0 {
                                 self.prepareRequest(connectionID, remote: remote)
                                 return false
+                            } else {
+                                self.requestBody[connectionID] = [UInt8]()
                             }
                         } else {
                             self.prepareRequest(connectionID, remote: remote)
