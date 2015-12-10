@@ -60,8 +60,10 @@ public class RequestHeader {
             case "HTTP_VERSION":
                 return self.version.rawValue
             default:
+                let lowercaseIndex = index.lowercaseString
+
                 for header in self.headers {
-                    if header.name == index {
+                    if header.name == lowercaseIndex {
                         return header.value
                     }
                 }
@@ -87,9 +89,11 @@ public class RequestHeader {
                     self.version = .Invalid
                 }
             default:
+                let lowercaseIndex = index.lowercaseString
+                
                 var found = -1
                 for header in self.headers.enumerate() {
-                    if header.element.name == index {
+                    if header.element.name == lowercaseIndex {
                         found = header.index
                         break
                     }
@@ -97,7 +101,7 @@ public class RequestHeader {
                 if found >= 0 {
                     self.headers.removeAtIndex(found)
                 }
-                self.headers.append((name: index, value: newValue))
+                self.headers.append((name: lowercaseIndex, value: newValue))
             }
         }
     }
@@ -189,7 +193,7 @@ public class RequestHeader {
                       let name = currentName else {
                     continue
                 }
-                self.headers.append((name: name, value: value))
+                self.headers.append((name: name.lowercaseString, value: value))
                 currentName = nil
             case .ErrorState:
                 self.parseErrorState(c)
