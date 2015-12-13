@@ -6,7 +6,7 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-extension UInt16 {
+public extension UInt16 {
     func hexString(padded padded:Bool = true) -> String {
         let dict:[Character] = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
         var result = ""
@@ -26,7 +26,7 @@ extension UInt16 {
     }
 }
 
-extension UInt8 {
+public extension UInt8 {
     func hexString(padded padded:Bool = true) -> String {
         let dict:[Character] = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
         var result = ""
