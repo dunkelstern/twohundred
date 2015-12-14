@@ -109,8 +109,11 @@ public class TwoHundredServer {
         let request = HTTPRequest(remoteIP: remote, header: header, data: body)
         let response = self.handleRequest(request)
         self.socket!.send(response.makeSocketData(), connectionID: connectionID, successCallback: nil)
-        for result in response.body {
-            self.socket!.send(result, connectionID: connectionID, successCallback: nil)
+        
+        if header.method != .HEAD {
+            for result in response.body {
+                self.socket!.send(result, connectionID: connectionID, successCallback: nil)
+            }
         }
         
         self.requestBody.removeValueForKey(connectionID)
