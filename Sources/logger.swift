@@ -9,10 +9,21 @@
 import Darwin
 
 public class Log {
-    public static var sharedInstance = Log()
     public static var logLevel: LogLevel = .Debug
 
-    private static var logFileName: String? = nil
+    public static var logFileName: String? = nil {
+        didSet {
+            self.logFile = nil
+            if let filename = self.logFileName {
+                do {
+                    self.logFile = try File(filename: filename, mode: .AppendOnly)
+                } catch {
+                    self.logFileName = nil
+                }
+            }
+        }
+    }
+    
     private static var logFile: File? = nil
 
     public enum LogLevel: Int {
