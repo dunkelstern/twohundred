@@ -21,7 +21,7 @@ public struct Date {
     /// Simple initializer
     ///
     /// - parameter timestamp: Epoch timestamp (seconds since 1970-01-01)
-    init(timestamp: Int) {
+    public init(timestamp: Int) {
         self.timestamp = timestamp
     }
     
@@ -31,7 +31,7 @@ public struct Date {
     ///
     /// - parameter isoDateString: date string to parse
     /// - returns: nil if string was not parseable
-    init?(isoDateString: String) {
+    public init?(isoDateString: String) {
         var time = tm()
         if strptime(isoDateString, "%FT%T%z", &time) == nil {
             if strptime(isoDateString, "%FT%T%Z", &time) == nil {
@@ -51,7 +51,7 @@ public struct Date {
     ///
     /// - parameter rfc822DateString: date string to parse
     /// - returns: nil if string was not parseable
-    init?(rfc822DateString: String) {
+    public init?(rfc822DateString: String) {
         var time = tm()
         if strptime(rfc822DateString, "%a, %d %b %Y %H:%M:%S %z", &time) == nil {
             if strptime(rfc822DateString, "%a, %d %b %Y %H:%M:%S", &time) == nil {
