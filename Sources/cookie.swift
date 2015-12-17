@@ -69,7 +69,7 @@ public struct Cookie {
                 case "httponly":
                     self.httpOnly = true
                 default:
-                    print("Cookie: unkown flag \(c)")
+                    Log.warn("Cookie: unkown flag \(c)")
                 }
             }
         }

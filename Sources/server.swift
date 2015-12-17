@@ -96,7 +96,7 @@ public class TwoHundredServer {
     /// - parameter request: the request to handle
     /// - returns: HTTPResponse to send
     public func handleRequest(request: HTTPRequest) -> HTTPResponseBase {
-        print("Request from \(request.remoteIP): \(request.header.method) \(request.header.url)")
+        Log.debug("Request from \(request.remoteIP): \(request.header.method) \(request.header.url)")
         return HTTPResponseBase()
     }
     

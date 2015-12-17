@@ -16,6 +16,8 @@
 		4229FD551BE5A788009BE9D9 /* response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4229FD541BE5A788009BE9D9 /* response.swift */; };
 		4229FD571BE5ABBA009BE9D9 /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4229FD561BE5ABBA009BE9D9 /* server.swift */; };
 		4229FD591BE5B1D5009BE9D9 /* ipaddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4229FD581BE5B1D5009BE9D9 /* ipaddress.swift */; };
+		4236363F1C223BD500DB2160 /* file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236363D1C223BD500DB2160 /* file.swift */; };
+		423636401C223BD500DB2160 /* logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236363E1C223BD500DB2160 /* logger.swift */; };
 		42705C981BE6B9F800DC40FD /* string_convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42705C971BE6B9F800DC40FD /* string_convertible.swift */; };
 		428DA3031C011F83001666EF /* uuid4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA3021C011F83001666EF /* uuid4.swift */; };
 		428DA3061C0269B0001666EF /* connection_descriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA3051C0269B0001666EF /* connection_descriptor.swift */; };
@@ -55,6 +57,8 @@
 		4229FD541BE5A788009BE9D9 /* response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = response.swift; sourceTree = "<group>"; };
 		4229FD561BE5ABBA009BE9D9 /* server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = server.swift; sourceTree = "<group>"; };
 		4229FD581BE5B1D5009BE9D9 /* ipaddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ipaddress.swift; sourceTree = "<group>"; };
+		4236363D1C223BD500DB2160 /* file.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = file.swift; sourceTree = "<group>"; };
+		4236363E1C223BD500DB2160 /* logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logger.swift; sourceTree = "<group>"; };
 		42705C971BE6B9F800DC40FD /* string_convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = string_convertible.swift; sourceTree = "<group>"; };
 		428DA3021C011F83001666EF /* uuid4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uuid4.swift; sourceTree = "<group>"; };
 		428DA3051C0269B0001666EF /* connection_descriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = connection_descriptor.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				428DA3121C07B7A2001666EF /* date.swift */,
 				42C86B3C1C18D7E100735B38 /* cookie.swift */,
 				42C86B3E1C18DE7E00735B38 /* string+whitespace.swift */,
+				4236363D1C223BD500DB2160 /* file.swift */,
+				4236363E1C223BD500DB2160 /* logger.swift */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 				428DA30F1C053062001666EF /* http_defs.swift in Sources */,
 				4229FD591BE5B1D5009BE9D9 /* ipaddress.swift in Sources */,
 				42C86B3D1C18D7E100735B38 /* cookie.swift in Sources */,
+				4236363F1C223BD500DB2160 /* file.swift in Sources */,
 				428DA3131C07B7A2001666EF /* date.swift in Sources */,
 				428DA30A1C026E66001666EF /* adler32.swift in Sources */,
 				428DA3061C0269B0001666EF /* connection_descriptor.swift in Sources */,
@@ -305,6 +312,7 @@
 				4229FD511BE5A778009BE9D9 /* requestHeader.swift in Sources */,
 				4229FD4F1BE5A76A009BE9D9 /* socket.swift in Sources */,
 				4229FD531BE5A780009BE9D9 /* request.swift in Sources */,
+				423636401C223BD500DB2160 /* logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

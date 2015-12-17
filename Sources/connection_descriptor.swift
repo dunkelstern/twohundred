@@ -28,7 +28,7 @@ class ConnectionDescriptor {
             if case .File(let filename) = self.data {
                 self.fd = open(filename, O_RDONLY)
                 if self.fd < 0 {
-                    print("QueuedData: open failed: \(strerror(errno))")
+                    Log.error("QueuedData: open failed: \(strerror(errno))")
                     return nil
                 }
             }
@@ -78,7 +78,7 @@ class ConnectionDescriptor {
                             continue
                         }
                         
-                        print("QueuedData fetchData() failed: \(strerror(errno))")
+                        Log.error("QueuedData fetchData() failed: \(strerror(errno))")
                         return []
                     } else {
                         self.position += result

@@ -56,7 +56,7 @@ public class Socket {
             result = getaddrinfo(address!, "\(port)", &hints, &addrInfo)
         }
         if result != 0 {
-            print("Socket listen(): getaddrinfo error: \(gai_strerror(result))")
+            Log.fatal("Socket listen(): getaddrinfo error: \(gai_strerror(result))")
             return nil
         }
         
@@ -71,7 +71,7 @@ public class Socket {
         // create socket
         self.sock = socket(info.ai_family, info.ai_socktype, info.ai_protocol)
         if self.sock < 0 {
-            print("Socket listen(): socket creation failed: \(strerror(errno))")
+            Log.fatal("Socket listen(): socket creation failed: \(strerror(errno))")
             return nil
         }
         
@@ -82,7 +82,7 @@ public class Socket {
         // bind to port
         result = bind(self.sock, info.ai_addr, info.ai_addrlen)
         if result < 0 {
-            print("Socket listen(): bind failed: \(strerror(errno))")
+            Log.fatal("Socket listen(): bind failed: \(strerror(errno))")
         }
         
         // free query result
@@ -91,7 +91,7 @@ public class Socket {
         // start listening
         result = listen(self.sock, 20)
         if result < 0 {
-            print("Socket listen(): listening failed: \(strerror(errno))")
+            Log.fatal("Socket listen(): listening failed: \(strerror(errno))")
             close(self.sock)
             return nil
         }
@@ -132,20 +132,20 @@ public class Socket {
         let result = getaddrinfo(addr, "\(port)", &hints, &addrInfo)
         
         if result != 0 {
-            print("Socket connect(): getaddrinfo error: \(gai_strerror(result))")
+            Log.error("Socket connect(): getaddrinfo error: \(gai_strerror(result))")
             return nil
         }
         
         // create socket
         self.sock = socket(addrInfo.memory.ai_family, addrInfo.memory.ai_socktype, addrInfo.memory.ai_protocol)
         if self.sock < 0 {
-            print("Socket connect(): socket creation failed: \(strerror(errno))")
+            Log.error("Socket connect(): socket creation failed: \(strerror(errno))")
             return nil
         }
 
         // finally connect
         if connect(self.sock, addrInfo.memory.ai_addr, addrInfo.memory.ai_addrlen) < 0 {
-            print("Socket connect(): connection failed: \(strerror(errno))")
+            Log.error("Socket connect(): connection failed: \(strerror(errno))")
             return nil
         }
         
