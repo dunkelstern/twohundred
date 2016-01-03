@@ -6,6 +6,10 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
+import UnchainedDate
+import UnchainedString
+import UnchainedLogger
+
 public struct Cookie {
     public var name: String
     public var value: String
@@ -44,12 +48,12 @@ public struct Cookie {
         self.value = ""
         
         // split components
-        let components = headerValue.componentsSeparatedByString(";")
+        let components = headerValue.split(";")
         for c in components {
             
             // if component contains a equals sign split
-            if c.containsString("=") {
-                let parts = c.componentsSeparatedByString("=")
+            if c.contains("=") {
+                let parts = c.split("=")
                 switch parts[0].lowercaseString.stringByTrimmingWhitespace() {
                 case "domain":
                     self.domain = parts[1].stringByTrimmingWhitespace()

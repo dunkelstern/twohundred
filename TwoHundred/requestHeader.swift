@@ -6,6 +6,8 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
+import UnchainedString
+
 /// HTTP Request header
 public class RequestHeader {
     
@@ -129,7 +131,7 @@ public class RequestHeader {
     private var state: HeaderParserStates = .Method
     private func parse(data: String) -> Bool {
         var generator: String.CharacterView.Generator
-        if !data.hasSuffix("\r\n") {
+        if !data.isSuffixed("\r\n") {
             generator = "\(data)\r\n".characters.generate()
         } else {
             generator = data.characters.generate()

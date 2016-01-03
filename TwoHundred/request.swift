@@ -6,6 +6,8 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
+import UnchainedIPAddress
+
 /// HTTP Request
 public struct HTTPRequest {
 

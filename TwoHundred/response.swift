@@ -6,6 +6,14 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
+#if os(Linux)
+	import UnchainedGlibc
+#else
+	import Darwin
+#endif
+
+import UnchainedDate
+
 /// HTTP Header
 public struct HTTPHeader {
     /// Name of the header

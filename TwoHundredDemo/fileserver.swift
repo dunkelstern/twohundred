@@ -6,14 +6,20 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
-import twohundred
+#if os(Linux)
+	import UnchainedGlibc
+#else
+	import Darwin
+#endif
+
+import TwoHundred
+import UnchainedString
 
 class UnchainedFileServer: TwoHundredServer {
     override func handleRequest(request: HTTPRequest) -> HTTPResponse {
-        var url = request.header.url.substringFromIndex(request.header.url.characters.startIndex.advancedBy(1)) // cut off leading slash
-        if url.hasSuffix("/") {
-            url = url.substringToIndex(url.endIndex.predecessor())
+        var url = request.header.url.subString(fromIndex: request.header.url.characters.startIndex.advancedBy(1)) // cut off leading slash
+        if url.isSuffixed("/") {
+            url = url.subString(toIndex: url.endIndex.predecessor())
         }
         if url.characters.count == 0 {
             // index
@@ -24,7 +30,7 @@ class UnchainedFileServer: TwoHundredServer {
         
         var s = stat()
         if stat(url, &s) == 0 {
-            if s.st_mode & S_IFDIR != 0 {
+            if s.st_mode & UInt32(S_IFDIR) != 0 {
                 // directory, generate listing
                 print("\(request.header.method.rawValue) \(request.header.url) -> Directory")
                 return self.dirListing(url)
@@ -32,22 +38,22 @@ class UnchainedFileServer: TwoHundredServer {
             
             // try to guess the content type
             var contentType = "application/octet-stream"
-            if url.hasSuffix(".html") {
+            if url.isSuffixed(".html") {
                 contentType = "text/html"
             }
-            if url.hasSuffix(".js") {
+            if url.isSuffixed(".js") {
                 contentType = "text/javascript"
             }
-            if url.hasSuffix(".css") {
+            if url.isSuffixed(".css") {
                 contentType = "text/css"
             }
-            if url.hasSuffix(".png") {
+            if url.isSuffixed(".png") {
                 contentType = "image/png"
             }
-            if url.hasSuffix(".jpg") || url.hasSuffix(".jpeg") {
+            if url.isSuffixed(".jpg") || url.isSuffixed(".jpeg") {
                 contentType = "image/jpeg"
             }
-            if url.hasSuffix(".gif") {
+            if url.isSuffixed(".gif") {
                 contentType = "image/gif"
             }
             
@@ -80,7 +86,7 @@ class UnchainedFileServer: TwoHundredServer {
         var ep = readdir(dp)
         while ep != nil {
             let nameBuffer = ep.memory.d_name
-            let nameLen = Int(ep.memory.d_namlen)
+            // let nameLen = Int(ep.memory.d_namlen) // Only available in OSX
             
             // this is very ugly, but i don't know of a better way
             var copy: [CChar] = Array()
@@ -88,10 +94,14 @@ class UnchainedFileServer: TwoHundredServer {
             var i = 0
             for (_, value) in mirror.children {
                 copy.append(value as! Int8)
-                i++
-                if i == nameLen {
-                    break
-                }
+                i += 1
+
+				if value as! Int8 == 0 {
+					break
+				}
+                // if i == nameLen {
+                //     break
+                // }
             }
             copy.append(0) // zero terminate buffer
             

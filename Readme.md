@@ -1,6 +1,6 @@
 # TwoHundred HTTP Server
 
-TwoHundred is a HTTP 1.1 Server written in Swift without the use of Foundation, only POSIX and Grand Central Dispatch.
+TwoHundred is a HTTP 1.1 Server written in Swift without the use of Foundation, but a little Socket helper code in C because Grand central dispatch is missing on Linux currently.
 
 TwoHundred is IPv4 and IPv6 capable and supports HTTP 1.1 Connection Keepalive and Pipelining.
 
@@ -10,7 +10,7 @@ TwoHundred is licensed under the BSD 3 Clause license. See LICENSE.txt for full 
 
 ## Usage
 
-For a example see the Demo folder. The Demo is a simple file serving HTTP server that displays the files on the user's Desktop and allows downloading of the listed files. (Like the good old Apache file index). No counter measures against directory traversal attacks or something other advanced is going on.
+For a example see the Demo folder. The Demo is a simple file serving HTTP server that displays the files in the current working directory and allows downloading of the listed files. (Like the good old Apache file index). No counter measures against directory traversal attacks or something other advanced is going on.
 
 To use TwoHundred you'll need to subclass the TwoHundred main class and override the HTTP Request handling function:
 
@@ -81,22 +81,7 @@ let fileData   = SocketData.File("path/to/file/on/disk.dat")
 
 ## Other helpers
 
-### `IPAddress`
-
-Holds an IP-Address of either IPv4 or IPv6 type or a Wildcard token (for binding a socket to whatever IP there is set for example). This has initializers to parse an address from a string and is `CustomStringConvertible` to convert back to a string. This class will be extended to hold all IP-Address functionality to abstract away the POSIX interface which is very ugly to use from within Swift.
-
-### `UUID4`
-
-Just a random identifier. Conversion to string is possible, converting a string to a UUID is currently not possible. Comparisons are fast and memory footprint is low.
-
-### `Adler32`
-
-Adler32 checksumming with support to checksum strings and streaming data as well. Currently used as hash function for data.
-
 ### URL en/decoding strings
 
 The `String` type has been extended with `urlEncodedString()` and `urlDecodedString()` to facilitate percent en/decoding for usage of strings in URLs.
 
-### `Date`
-
-The `Date` class stores UTC dates. It is able to parse and generate RFC-822 and ISO-8601 strings.

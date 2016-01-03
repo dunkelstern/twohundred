@@ -9,5 +9,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "twohundred"
+    name: "TwoHundred",
+	targets: [
+	 	Target(name:"TwoHundredTests", dependencies: [.Target(name: "TwoHundred")]),
+	 	Target(name:"TwoHundredDemo", dependencies: [.Target(name: "TwoHundred")]),
+        Target(name:"TwoHundred")
+	],
+	dependencies: [
+		.Package(url:"https://github.com/dunkelstern/Adler32.git", majorVersion: 0),
+		.Package(url:"https://github.com/dunkelstern/UnchainedIPAddress.git", majorVersion: 0),
+		.Package(url:"https://github.com/dunkelstern/UnchainedDate.git", majorVersion: 0),
+		.Package(url:"https://github.com/dunkelstern/UnchainedLogger.git", majorVersion: 0),
+		.Package(url:"https://github.com/dunkelstern/libUnchainedSocket.git", majorVersion: 0)
+	]
 )
