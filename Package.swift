@@ -23,3 +23,9 @@ let package = Package(
 		.Package(url:"https://github.com/dunkelstern/libUnchainedSocket.git", majorVersion: 0)
 	]
 )
+
+#if os(Linux)
+	package.dependencies.append(
+		.Package(url:"https://github.com/dunkelstern/BlocksRuntime.git", majorVersion: 0)
+	)
+#endif
