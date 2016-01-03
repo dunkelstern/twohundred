@@ -62,7 +62,7 @@ public class TwoHundredServer {
         self.serverHandle = server_init(self.listeningAddress.description, "\(self.listeningPort)", false, 10)
 		if serverHandle == nil {
 			Log.fatal("Could not initialize server!")
-			abort()
+			return
 		}
 
 		self.serverResponseHandlerBlock = { (connection: UnsafeMutablePointer<Connection>, data: UnsafePointer<CChar>, size: Int) -> Bool in

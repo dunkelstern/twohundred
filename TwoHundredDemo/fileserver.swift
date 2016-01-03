@@ -30,7 +30,7 @@ class UnchainedFileServer: TwoHundredServer {
         
         var s = stat()
         if stat(url, &s) == 0 {
-            if s.st_mode & UInt32(S_IFDIR) != 0 {
+            if UInt32(s.st_mode) & UInt32(S_IFDIR) != 0 {
                 // directory, generate listing
                 print("\(request.header.method.rawValue) \(request.header.url) -> Directory")
                 return self.dirListing(url)
