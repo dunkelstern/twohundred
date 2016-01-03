@@ -25,8 +25,8 @@ let package = Package(
 )
 
 #if os(Linux)
-	package.dependencies.append(
+	package.dependencies.appendContentsOf([
 		.Package(url:"https://github.com/dunkelstern/BlocksRuntime.git", majorVersion: 0),
 		.Package(url:"https://github.com/dunkelstern/UnchainedGlibc.git", majorVersion: 0)
-	)
+	])
 #endif
