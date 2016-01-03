@@ -6,6 +6,10 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
+#if os(Linux)
+import BlocksRuntime
+#endif
+
 import UnchainedIPAddress
 import UnchainedLogger
 import UnchainedSocket
