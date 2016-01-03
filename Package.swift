@@ -17,8 +17,10 @@ let package = Package(
 	],
 	dependencies: [
 		.Package(url:"https://github.com/dunkelstern/Adler32.git", majorVersion: 0),
+		.Package(url:"https://github.com/dunkelstern/UnchainedString.git", majorVersion: 0),
 		.Package(url:"https://github.com/dunkelstern/UnchainedIPAddress.git", majorVersion: 0),
 		.Package(url:"https://github.com/dunkelstern/UnchainedDate.git", majorVersion: 0),
+		.Package(url:"https://github.com/dunkelstern/UnchainedFile.git", majorVersion: 0),
 		.Package(url:"https://github.com/dunkelstern/UnchainedLogger.git", majorVersion: 0),
 		.Package(url:"https://github.com/dunkelstern/libUnchainedSocket.git", majorVersion: 0)
 	]
