@@ -58,9 +58,9 @@ public class TwoHundredServer {
    
 
     /// run the server
-    public func start() {
-        self.serverHandle = server_init(self.listeningAddress.description, "\(self.listeningPort)", false, 10)
-		if serverHandle == nil {
+    public func start(timeout: Int32 = 10, numThreads: Int32 = 30) {
+        self.serverHandle = server_init(self.listeningAddress.description, "\(self.listeningPort)", false, timeout)
+		if self.serverHandle == nil {
 			Log.fatal("Could not initialize server!")
 			return
 		}
@@ -117,7 +117,7 @@ public class TwoHundredServer {
 		server_start(self.serverHandle, { (connection, instance, data, size) -> Bool in
 			let handler = unsafeBitCast(instance, ResponseHandlerBlock.self)
 			return handler(connection: connection, data: data, size: size)
-		}, unsafeBitCast(self.serverResponseHandlerBlock, UnsafeMutablePointer<Void>.self), 30)
+		}, unsafeBitCast(self.serverResponseHandlerBlock, UnsafeMutablePointer<Void>.self), numThreads)
 	}
 
 	public func stop() {
